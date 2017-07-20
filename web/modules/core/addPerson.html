@@ -1,0 +1,74 @@
+<div class="modal-header">
+	<h3 class="modal-title" ng-if="person.id">编辑人员</h3>
+	<h3 class="modal-title" ng-else>新增人员</h3>
+</div>
+<div class="modal-body">
+
+	<form class="form-horizontal">
+        <md-input-container flex>
+            <label>用户名</label>
+            <input type="text" ng-model="person.username"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>姓名</label>
+            <input type="text" ng-model="person.realname"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>密码</label>
+            <input type="password" ng-model="person.password"/>
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>手机号</label>
+            <input type="text" ng-model="person.telephone"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>出生日期</label>
+            <input type="text" ng-model="person.birthday"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>邮箱地址</label>
+            <input type="text" ng-model="person.email"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>部门</label>
+            <input type="text" ng-model="person.department"/>
+        </md-input-container>
+
+
+        <div style="width: 100%;float: left">
+            <div style="width: 50%;float: left">
+                <p>性别：</p>
+                <md-radio-group ng-model="person.sex" flex>
+                    <md-radio-button value="1" class="md-primary">男</md-radio-button>
+                    <md-radio-button value="2"> 女 </md-radio-button>
+
+                </md-radio-group>
+            </div>
+            <div style="width: 40%;float: left">
+                <p>类别：</p>
+                <md-radio-group ng-model="person.status" flex>
+                    <md-radio-button value="1" class="md-primary">正式员工</md-radio-button>
+                    <md-radio-button value="2"> 试用员工 </md-radio-button>
+
+                </md-radio-group>
+            </div>
+        </div>
+
+
+
+        <p>头像:</p>
+               <label class="btn btn-primary" for="my-file-selector">
+                    <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());" file-upload>
+                    选择文件
+                </label>
+                <span class='label label-info' id="upload-file-info"></span>
+
+  
+</form>
+</div>
+<div class="modal-footer">
+    <md-button class="md-raised md-primary" ng-click="ok()">确定</md-button>
+    <md-button class="md-raised md-warn" ng-click="cancel()">取消</md-button>
+</div>
+

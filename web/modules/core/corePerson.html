@@ -1,0 +1,44 @@
+<style>
+	.md-button.md-small {
+		min-width: 1%;
+	}
+</style>
+<div class="row">
+	<div class="col-lg-12">
+		<h2 class="page-header">人员管理</h2>
+	</div>
+	<!-- /.col-lg-12 -->
+
+	<div class="col-lg-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<!--fa fa-search-->
+				<md-button class="md-fab md-primary md-mini" aria-label="新增部门" ng-click="addDept()">
+					<md-icon md-font-icon="fa-plus" class="fa"></md-icon>
+				</md-button>
+				<md-button class="md-fab md-primary md-mini" aria-label="修改"  ng-click="editDept()">
+					<md-icon md-font-icon="fa-pencil-square-o" class="fa"></md-icon>
+				</md-button>
+				<md-button class="md-fab md-primary md-mini" aria-label="删除" ng-click="deleteDept()">
+					<md-icon md-font-icon="fa-times" class="fa"></md-icon>
+				</md-button>
+
+			</div>
+			<div class="panel-body">
+				<div id="tree"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9" style="padding-left: 0px;">
+		<div class="panel panel-default panel-noborder">
+			<div class="panel-heading panel-border">
+				<form class="form-inline">
+					<input type="text" class="form-control input-l" placeholder="姓名" ng-model="pageOption.realname">
+					<md-button class="md-raised" ng-click="queryTable()">查询</md-button>
+					<md-button class="md-raised md-primary"  ng-click="addPerson()" style="float: right;">新增人员</md-button>
+				</form>
+			</div>
+			<div class="panel-body" style="padding: 0px;"><my-table></my-table></div>
+		</div>
+	</div>
+</div>

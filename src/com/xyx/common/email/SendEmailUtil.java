@@ -9,7 +9,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmailUtil {
-	
+
+
+
 	private static final String EMAIL_SERVER="smtp.163.com";
 	private static final String USERNAME="xieyaxiong@163.com";
 	private static final String PASSWORD="13995883490";

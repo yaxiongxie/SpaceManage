@@ -1,12 +1,12 @@
-package com.xyx.common.test;
+package com.xyx.common.bean;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "commonData_newtype", schema = "SpaceWebsite", catalog = "")
-public class CommonDataNewtype {
+@Table(name = "commonData_status", schema = "SpaceWebsite", catalog = "")
+public class CommonDataStatus {
     private int id;
-    private String typeName;
+    private String statusName;
     private int sortInt;
 
     @Id
@@ -20,13 +20,13 @@ public class CommonDataNewtype {
     }
 
     @Basic
-    @Column(name = "type_name")
-    public String getTypeName() {
-        return typeName;
+    @Column(name = "status_name")
+    public String getStatusName() {
+        return statusName;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
 
     @Basic
@@ -44,11 +44,11 @@ public class CommonDataNewtype {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CommonDataNewtype that = (CommonDataNewtype) o;
+        CommonDataStatus that = (CommonDataStatus) o;
 
         if (id != that.id) return false;
         if (sortInt != that.sortInt) return false;
-        if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) return false;
+        if (statusName != null ? !statusName.equals(that.statusName) : that.statusName != null) return false;
 
         return true;
     }
@@ -56,7 +56,7 @@ public class CommonDataNewtype {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
+        result = 31 * result + (statusName != null ? statusName.hashCode() : 0);
         result = 31 * result + sortInt;
         return result;
     }

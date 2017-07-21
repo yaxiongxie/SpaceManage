@@ -1,0 +1,25 @@
+<style>
+	.md-button.md-small {
+		min-width: 1%;
+	}
+</style>
+<div class="row">
+	<div class="col-lg-12">
+		<h2 class="page-header">楼盘列表</h2>
+	</div>
+
+	<div class="col-lg-12" style="padding-left: 0px;">
+		<div class="panel panel-default panel-noborder">
+			<div class="panel-heading panel-border">
+				<form class="form-inline">
+					<input type="text" class="form-control input-l" placeholder="楼盘名称" ng-model="pageOption.title">
+					<select placeholder="区域" ng-model="areaid">
+						<option value="area.id" ng-repeat="area in arealist">{{area.countryName}}</option>
+					</select>
+					<md-button class="md-raised md-primary" ng-click="queryTable()">查询</md-button>
+				</form>
+			</div>
+			<div class="panel-body" style="padding: 0px;"><my-table></my-table></div>
+		</div>
+	</div>
+</div>

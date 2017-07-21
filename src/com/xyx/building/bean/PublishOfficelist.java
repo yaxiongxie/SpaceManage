@@ -1,4 +1,6 @@
-package com.xyx.common.test;
+package com.xyx.building.bean;
+
+import com.xyx.common.bean.CommonDataStatus;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

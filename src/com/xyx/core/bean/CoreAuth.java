@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CoreAuth")
 @Table(name="core_auth"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreAuth  implements java.io.Serializable {

@@ -16,7 +16,7 @@ import com.xyx.common.tree.TreeBean;
  */
 @Entity(name="DocumentCategory")
 @Table(name="document_category"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class DocumentCategory extends TreeBean implements java.io.Serializable {

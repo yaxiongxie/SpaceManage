@@ -267,12 +267,17 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: "modules/index/newindex.html"
         })
         .state('core/person', {url: "/core/person",templateUrl: "modules/core/corePerson.html",controller:'core.person',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/core/js/coreperson.js");}}})
-         .state('core/role', {url: "/core/role",templateUrl: "modules/core/coreRole.html",controller:'core.role',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/core/js/corerole.js");}}})
+        .state('core/role', {url: "/core/role",templateUrl: "modules/core/coreRole.html",controller:'core.role',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/core/js/corerole.js");}}})
 		 .state('core/log', {url: "/core/log",templateUrl: "modules/core/coreLog.html",controller:'core.log',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/core/js/corelog.js");}}})
 		 .state('core/wordbook', {url: "/core/wordbook",templateUrl: "modules/core/coreWordbook.html",controller:'core.wordbook',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/core/js/corewordbook.js");}}})
          .state('document', {url: "/document",templateUrl: "modules/document/document.html",controller:'document',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/document/js/document.js");}}})
          .state('statistics', {url: "/statistics",templateUrl: "modules/statistics/statistics.html",controller:'statistics',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/statistics/js/statistics.js");}}})
-		 .state('table', {
+
+        .state('building/buildinglist', {url: "/building/buildinglist",templateUrl: "modules/building/buildinglist.html",controller:'building.buildinglist',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/buildinglist.js");}}})
+        .state('building/addBuilding', {url: "/building/addBuilding",templateUrl: "modules/building/addBuilding.html",controller:'building.addBuilding',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/addBuilding.js");}}})
+
+
+        .state('table', {
             url: "/table",
             templateUrl: "partials/state2.list.html",
             controller: function($scope) {

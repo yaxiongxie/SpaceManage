@@ -1,12 +1,12 @@
-package com.xyx.common.test;
+package com.xyx.common.bean;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "commonData_sex", schema = "SpaceWebsite", catalog = "")
-public class CommonDataSex {
+@Table(name = "commonData_area", schema = "SpaceWebsite", catalog = "")
+public class CommonDataArea {
     private int id;
-    private String sexName;
+    private String countryName;
     private int sortInt;
 
     @Id
@@ -20,13 +20,13 @@ public class CommonDataSex {
     }
 
     @Basic
-    @Column(name = "sex_name")
-    public String getSexName() {
-        return sexName;
+    @Column(name = "country_name")
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setSexName(String sexName) {
-        this.sexName = sexName;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     @Basic
@@ -44,11 +44,11 @@ public class CommonDataSex {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CommonDataSex that = (CommonDataSex) o;
+        CommonDataArea that = (CommonDataArea) o;
 
         if (id != that.id) return false;
         if (sortInt != that.sortInt) return false;
-        if (sexName != null ? !sexName.equals(that.sexName) : that.sexName != null) return false;
+        if (countryName != null ? !countryName.equals(that.countryName) : that.countryName != null) return false;
 
         return true;
     }
@@ -56,7 +56,7 @@ public class CommonDataSex {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (sexName != null ? sexName.hashCode() : 0);
+        result = 31 * result + (countryName != null ? countryName.hashCode() : 0);
         result = 31 * result + sortInt;
         return result;
     }

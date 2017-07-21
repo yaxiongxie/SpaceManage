@@ -16,7 +16,7 @@ import com.xyx.common.tree.TreeBean;
  */
 @Entity(name="CoreWordbookCategory")
 @Table(name="core_wordbook_category"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreWordbookCategory extends TreeBean implements java.io.Serializable {

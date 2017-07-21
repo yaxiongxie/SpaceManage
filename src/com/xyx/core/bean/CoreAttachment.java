@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CoreAttachment")
 @Table(name="core_attachment"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreAttachment  implements java.io.Serializable {

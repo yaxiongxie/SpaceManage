@@ -1,12 +1,12 @@
-package com.xyx.common.test;
+package com.xyx.common.bean;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "commonData_area", schema = "SpaceWebsite", catalog = "")
-public class CommonDataArea {
+@Table(name = "commonData_newtype", schema = "SpaceWebsite", catalog = "")
+public class CommonDataNewtype {
     private int id;
-    private String countryName;
+    private String typeName;
     private int sortInt;
 
     @Id
@@ -20,13 +20,13 @@ public class CommonDataArea {
     }
 
     @Basic
-    @Column(name = "country_name")
-    public String getCountryName() {
-        return countryName;
+    @Column(name = "type_name")
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     @Basic
@@ -44,11 +44,11 @@ public class CommonDataArea {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CommonDataArea that = (CommonDataArea) o;
+        CommonDataNewtype that = (CommonDataNewtype) o;
 
         if (id != that.id) return false;
         if (sortInt != that.sortInt) return false;
-        if (countryName != null ? !countryName.equals(that.countryName) : that.countryName != null) return false;
+        if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) return false;
 
         return true;
     }
@@ -56,7 +56,7 @@ public class CommonDataArea {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (countryName != null ? countryName.hashCode() : 0);
+        result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
         result = 31 * result + sortInt;
         return result;
     }

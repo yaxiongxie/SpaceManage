@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity(name="Document")
 @Table(name="document"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class Document  implements java.io.Serializable {

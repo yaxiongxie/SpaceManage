@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CoreRoleAuth")
 @Table(name="core_role_auth"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreRoleAuth  implements java.io.Serializable {

@@ -1,0 +1,60 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">添加楼盘</h2>
+    </div>
+
+    <div class="col-lg-9" style="padding-left: 0px;">
+
+            <div class="modal-body">
+
+                <form class="form-horizontal">
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>楼盘名称</label>
+                            <input type="text" ng-model="building.title"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>地址</label>
+                            <input type="text" ng-model="building.address"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>附近交通</label>
+                            <input type="text" ng-model="building.transport"/>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>大厦信息</label>
+                            <input type="text" ng-model="building.information"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>大厦配套</label>
+                            <input type="text" ng-model="building.informationMatch"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>大厦建成时间</label>
+                            <md-datepicker ng-model="buildTime" md-placeholder="大厦建成时间"></md-datepicker>
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row">
+                        <md-select placeholder="区域" ng-model="building.commonDataAreaByAreaTypeId" ng-change="selectArea()" flex>
+                            <md-option ng-value="area.id" ng-repeat="area in arealist">{{area.countryName}}</md-option>
+                        </md-select>
+                        <md-select placeholder="街道" ng-model="building.commonDataDistrictByDistrictTypeId" flex>
+                            <md-option ng-value="district.id" ng-repeat="district in districtlist">{{district.districtName}}</md-option>
+                        </md-select>
+                        <md-select placeholder="地铁" ng-model="building.commonDataSubwayBySubwayId"  flex>
+                            <md-option ng-value="subway.id" ng-repeat="subway in subwaylist">{{subway.subwayName}}</md-option>
+                        </md-select>
+                    </div>
+
+
+                </form>
+            </div>
+                <md-button class="md-raised md-primary" ng-click="save()" style="float: right">保存</md-button>
+    </div>
+</div>
+
+

@@ -1,12 +1,12 @@
-package com.xyx.common.test;
+package com.xyx.common.bean;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "commonData_subway", schema = "SpaceWebsite", catalog = "")
-public class CommonDataSubway {
+@Table(name = "commonData_sourcetype", schema = "SpaceWebsite", catalog = "")
+public class CommonDataSourcetype {
     private int id;
-    private String subwayName;
+    private String sourceTypeName;
     private int sortInt;
 
     @Id
@@ -20,13 +20,13 @@ public class CommonDataSubway {
     }
 
     @Basic
-    @Column(name = "subway_name")
-    public String getSubwayName() {
-        return subwayName;
+    @Column(name = "source_type_name")
+    public String getSourceTypeName() {
+        return sourceTypeName;
     }
 
-    public void setSubwayName(String subwayName) {
-        this.subwayName = subwayName;
+    public void setSourceTypeName(String sourceTypeName) {
+        this.sourceTypeName = sourceTypeName;
     }
 
     @Basic
@@ -44,11 +44,12 @@ public class CommonDataSubway {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CommonDataSubway that = (CommonDataSubway) o;
+        CommonDataSourcetype that = (CommonDataSourcetype) o;
 
         if (id != that.id) return false;
         if (sortInt != that.sortInt) return false;
-        if (subwayName != null ? !subwayName.equals(that.subwayName) : that.subwayName != null) return false;
+        if (sourceTypeName != null ? !sourceTypeName.equals(that.sourceTypeName) : that.sourceTypeName != null)
+            return false;
 
         return true;
     }
@@ -56,7 +57,7 @@ public class CommonDataSubway {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (subwayName != null ? subwayName.hashCode() : 0);
+        result = 31 * result + (sourceTypeName != null ? sourceTypeName.hashCode() : 0);
         result = 31 * result + sortInt;
         return result;
     }

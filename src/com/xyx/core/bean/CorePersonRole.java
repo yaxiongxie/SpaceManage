@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CorePersonRole")
 @Table(name="core_person_role"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CorePersonRole  implements java.io.Serializable {

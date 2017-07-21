@@ -15,7 +15,7 @@ import com.xyx.common.tree.TreeBean;
  */
 @Entity(name="CoreDepartment")
 @Table(name="core_department"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreDepartment extends TreeBean implements java.io.Serializable {

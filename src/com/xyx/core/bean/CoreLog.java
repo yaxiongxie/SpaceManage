@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CoreLog")
 @Table(name="core_log"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreLog  implements java.io.Serializable {

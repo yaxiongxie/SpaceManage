@@ -1,4 +1,4 @@
-angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http','toaster','confirmDialog','uploadFiles','$ocLazyLoad',function($scope,$uibModal,$http,toaster,confirmDialog,uploadFiles,$ocLazyLoad){
+angular.module("myApp").controller("building.buildinglist", ['$scope','$uibModal','$http','toaster','confirmDialog','uploadFiles','$ocLazyLoad',function($scope,$uibModal,$http,toaster,confirmDialog,uploadFiles,$ocLazyLoad){
     $scope.name="xieyaxiong";
     $scope.selected=[];
     $scope.updateSelection = function($event, id){
@@ -24,12 +24,12 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
     }
     $scope.columns=[
         {name:"编号",width:"10%",columnName:"id"},
-        {name:"姓名",width:"15%",columnName:"realname"},
-        {name:"姓别",width:"10%",columnName:"sex"},
-        {name:"邮箱地址",width:"15%",columnName:"email"},
-        {name:"手机号",width:"15%",columnName:"telephone"},
-		{name:"出生日期",width:"15%",columnName:"birthday"},
-        {name:"类别",width:"10%",columnName:"status"}
+        {name:"楼盘名称",width:"20%",columnName:"title"},
+        {name:"所在地区",width:"15%",columnName:"commonDataAreaByAreaTypeId",relateName:"countryName"},
+        {name:"地址",width:"20%",columnName:"address"},
+        {name:"地铁",width:"10%",columnName:"commonDataSubwayBySubwayId",relateName:"subwayName"},
+        {name:"出租面积",width:"20%",columnName:"rentArea"}
+
     ];
 	$scope.operateWidth="10%";
     $scope.operations=[
@@ -193,13 +193,22 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
         　　　　$('#tree').treeview({color: "#428bca",data: data,showBorder: false});
         　　});
     }
+
+
     function refreshTable(){
-    	$http.post('core/loadPersonPage.do',$scope.pageOption).success(function(data) {
+    	$http.post('building/loadPage.do',$scope.pageOption).success(function(data) {
     		$scope.pageOption.currentPage=data.currentPage;
     		$scope.page=data;
         　　});
     }
+
+    function loadArea(){
+        $http.post('building/loadAllArea.do').success(function(data) {
+            $scope.arealist=data
+        });
+    }
     refreshTree();
     refreshTable();
+    loadArea();
     
 }]);

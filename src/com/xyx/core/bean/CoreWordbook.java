@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity(name="CoreWordbook")
 @Table(name="core_wordbook"
-    ,catalog="platform"
+    ,catalog="SpaceWebsite"
 )
 
 public class CoreWordbook  implements java.io.Serializable {

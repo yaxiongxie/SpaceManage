@@ -1,4 +1,6 @@
-package com.xyx.common.test;
+package com.xyx.building.bean;
+
+import com.xyx.common.bean.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -13,7 +15,7 @@ public class PublishOfficebuildinglist {
     private int rentMinPrice;
     private String transport;
     private String information;
-    private Timestamp buildTime;
+    private String buildTime;
     private Timestamp createTime;
     private String location;
     private String image1;
@@ -106,11 +108,11 @@ public class PublishOfficebuildinglist {
 
     @Basic
     @Column(name = "buildTime")
-    public Timestamp getBuildTime() {
+    public String getBuildTime() {
         return buildTime;
     }
 
-    public void setBuildTime(Timestamp buildTime) {
+    public void setBuildTime(String buildTime) {
         this.buildTime = buildTime;
     }
 

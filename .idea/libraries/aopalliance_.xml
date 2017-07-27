@@ -58,6 +58,7 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/org.apache.commons.pool.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-4.1.2.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jedis-2.0.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

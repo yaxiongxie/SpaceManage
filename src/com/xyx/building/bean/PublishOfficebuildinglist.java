@@ -3,7 +3,6 @@ package com.xyx.building.bean;
 import com.xyx.common.bean.*;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "publish_officebuildinglist", schema = "SpaceWebsite", catalog = "")
@@ -16,7 +15,7 @@ public class PublishOfficebuildinglist {
     private String transport;
     private String information;
     private String buildTime;
-    private Timestamp createTime;
+    private String createTime;
     private String location;
     private String image1;
     private String image2;
@@ -118,11 +117,11 @@ public class PublishOfficebuildinglist {
 
     @Basic
     @Column(name = "createTime")
-    public Timestamp getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

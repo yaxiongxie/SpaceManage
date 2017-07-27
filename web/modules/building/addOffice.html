@@ -1,0 +1,67 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">{{title}}</h2>
+    </div>
+
+    <div class="col-lg-9" style="padding-left: 0px;">
+
+            <div class="modal-body">
+
+                <form class="form-horizontal">
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>房源名称</label>
+                            <input type="text" ng-model="office.title"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>所属楼盘</label>
+                            <input type="text" ng-model="office.publishOfficebuildinglistByOfficeBuildingId.title" ng-click="showBuildinglist()"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>价格</label>
+                            <input type="number" ng-model="office.rentPrice"/>
+                        </md-input-container>
+
+                    </div>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>面积</label>
+                            <input type="number" ng-model="office.areaNum"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>楼层</label>
+                            <input type="number" ng-model="office.floorNum"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>房源信息</label>
+                            <input type="text" ng-model="office.information"/>
+                        </md-input-container>
+
+                    </div>
+
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>房东姓名</label>
+                            <input type="text" ng-model="office.ownerName"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>房东电话</label>
+                            <input type="text" ng-model="office.ownerTelephone"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>额外说明</label>
+                            <input type="text" ng-model="office.ownerInformation"/>
+                        </md-input-container>
+
+                    </div>
+                    <md-select placeholder="状态" ng-model="office.commonDataStatusByStatusId.id"  flex="30">
+                        <md-option ng-value="status.id" ng-repeat="status in statuslist">{{status.statusName}}</md-option>
+                    </md-select>
+                </form>
+            </div>
+                <md-button class="md-raised md-primary" ng-click="save()" style="float: right">保存</md-button>
+    </div>
+</div>
+
+

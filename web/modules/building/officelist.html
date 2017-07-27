@@ -5,14 +5,14 @@
 </style>
 <div class="row">
 	<div class="col-lg-12">
-		<h2 class="page-header">楼盘列表</h2>
+		<h2 class="page-header">房源列表</h2>
 	</div>
 
 	<div class="col-lg-12" style="padding-left: 0px;">
 		<div class="panel panel-default panel-noborder">
 			<div class="panel-heading panel-border">
 				<form class="form-inline">
-					<input type="text" class="form-control input-l" placeholder="楼盘名称" ng-model="pageOption.title">
+					<input type="text" class="form-control input-l" placeholder="房源名称" ng-model="pageOption.title">
 					<select placeholder="区域" ng-model="pageOption.areaid" class="input-md form-control">
 						<option value="0">不限地区</option>
 						<option value="{{area.id}}" ng-repeat="area in arealist">{{area.countryName}}</option>
@@ -20,6 +20,10 @@
 					<select placeholder="地铁" ng-model="pageOption.subwayid" class="input-md form-control">
 						<option value="0">不限地铁</option>
 						<option value="{{subway.id}}" ng-repeat="subway in subwaylist">{{subway.subwayName}}</option>
+					</select>
+					<select placeholder="状态" ng-model="pageOption.statusid" class="input-md form-control">
+						<option value="0">不限状态</option>
+						<option value="{{status.id}}" ng-repeat="status in statuslist">{{status.statusName}}</option>
 					</select>
 					<md-button class="md-raised md-primary" ng-click="queryTable()">查询</md-button>
 				</form>

@@ -65,7 +65,7 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
     	$http.post('core/loadPerson.do',jsonData).success(function(data){
     		data.department=selectnode[0].text;
     		var modalInstance = $uibModal.open({
-                templateUrl: 'modules/core/addBuilding.html',
+                templateUrl: 'modules/core/addPerson.html',
                 controller: 'core.addPerson',
                 size: "",
                 resolve: {
@@ -73,7 +73,7 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
                         return data;
                     },
                     loadMyCtrl:function(){
-                        return $ocLazyLoad.load("modules/core/js/addBuilding.js");
+                        return $ocLazyLoad.load("modules/core/js/addperson.js");
                     }
                 }
             });
@@ -104,7 +104,7 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
     $scope.addPerson=function(){
     	var selectnode=$('#tree').treeview('getSelected');
     	var modalInstance = $uibModal.open({
-            templateUrl: 'modules/core/addBuilding.html',
+            templateUrl: 'modules/core/addPerson.html',
             controller: 'core.addPerson',
             size: "",
             resolve: {
@@ -112,7 +112,7 @@ angular.module("myApp").controller("core.person", ['$scope','$uibModal','$http',
                     return {department:selectnode[0].text};
                 },
                 loadMyCtrl:function(){
-                    return $ocLazyLoad.load("modules/core/js/addBuilding.js");
+                    return $ocLazyLoad.load("modules/core/js/addperson.js");
                 }
             }
         });

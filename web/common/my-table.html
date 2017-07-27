@@ -48,8 +48,8 @@
     </tr>
     </tbody>
 </table>
-<div class="row">
-	<div class="col-lg-2">
+<div class="row" ng-hide="hidePage">
+	<div class="col-lg-2" ng-hide="hideDelete">
 		<div  ng-if="selected.length>0">
 			<md-button class="md-raised md-warn" ng-click="deleteBatch()">批量删除</md-button>
 		</div>

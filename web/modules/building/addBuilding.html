@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="page-header">添加楼盘</h2>
+        <h2 class="page-header">{{title}}</h2>
     </div>
 
     <div class="col-lg-9" style="padding-left: 0px;">
@@ -39,13 +39,13 @@
                     </div>
 
                     <div layout="row">
-                        <md-select placeholder="区域" ng-model="building.commonDataAreaByAreaTypeId" ng-change="selectArea()" flex>
+                        <md-select placeholder="区域" ng-model="building.commonDataAreaByAreaTypeId.id" ng-change="selectArea()" flex>
                             <md-option ng-value="area.id" ng-repeat="area in arealist">{{area.countryName}}</md-option>
                         </md-select>
-                        <md-select placeholder="街道" ng-model="building.commonDataDistrictByDistrictTypeId" flex>
+                        <md-select placeholder="街道" ng-model="building.commonDataDistrictByDistrictTypeId.id" flex>
                             <md-option ng-value="district.id" ng-repeat="district in districtlist">{{district.districtName}}</md-option>
                         </md-select>
-                        <md-select placeholder="地铁" ng-model="building.commonDataSubwayBySubwayId"  flex>
+                        <md-select placeholder="地铁" ng-model="building.commonDataSubwayBySubwayId.id"  flex>
                             <md-option ng-value="subway.id" ng-repeat="subway in subwaylist">{{subway.subwayName}}</md-option>
                         </md-select>
                     </div>

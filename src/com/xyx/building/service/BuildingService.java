@@ -4,9 +4,12 @@ import com.xyx.building.bean.PublishOfficebuildinglist;
 import com.xyx.common.BaseService;
 import com.xyx.common.Page;
 import com.xyx.common.bean.*;
-import com.xyx.common.encrypt.MD5;
-import com.xyx.core.bean.CorePerson;
+import com.xyx.common.json.PropertyStrategyWrapper;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+import net.sf.json.util.CycleDetectionStrategy;
+import net.sf.json.util.PropertyFilter;
+import net.sf.json.util.PropertySetStrategy;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
@@ -22,19 +25,22 @@ public class BuildingService extends BaseService {
 
 	public String save(JSONObject jsonObject) throws Exception {
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		PublishOfficebuildinglist building=(PublishOfficebuildinglist) JSONObject.toBean(jsonObject,PublishOfficebuildinglist.class);
-		if(jsonObject.has("commonDataAreaByAreaTypeId")){
-			building.setCommonDataAreaByAreaTypeId(get(CommonDataArea.class,jsonObject.getInt("commonDataAreaByAreaTypeId")));
+		JsonConfig config = new JsonConfig();
+		config.setPropertySetStrategy(new PropertyStrategyWrapper(PropertySetStrategy.DEFAULT));
+		config.setRootClass(PublishOfficebuildinglist.class);
+		PublishOfficebuildinglist building=(PublishOfficebuildinglist) JSONObject.toBean(jsonObject,config);
+		if(jsonObject.has("commonDataAreaByAreaTypeId[id]")){
+			building.setCommonDataAreaByAreaTypeId(get(CommonDataArea.class,jsonObject.getInt("commonDataAreaByAreaTypeId[id]")));
 		}
-		if(jsonObject.has("commonDataDistrictByDistrictTypeId")){
-			building.setCommonDataDistrictByDistrictTypeId(get(CommonDataDistrict.class,jsonObject.getInt("commonDataDistrictByDistrictTypeId")));
+		if(jsonObject.has("commonDataDistrictByDistrictTypeId[id]")){
+			building.setCommonDataDistrictByDistrictTypeId(get(CommonDataDistrict.class,jsonObject.getInt("commonDataDistrictByDistrictTypeId[id]")));
 		}
-		if(jsonObject.has("commonDataSubwayBySubwayId")){
-			building.setCommonDataSubwayBySubwayId(get(CommonDataSubway.class,jsonObject.getInt("commonDataSubwayBySubwayId")));
+		if(jsonObject.has("commonDataSubwayBySubwayId[id]")){
+			building.setCommonDataSubwayBySubwayId(get(CommonDataSubway.class,jsonObject.getInt("commonDataSubwayBySubwayId[id]")));
 		}
 		building.setCommonDataSourcetypeByBuildingTypeId(get(CommonDataSourcetype.class,1));
 		building.setCommonDataStatusByStatusId(get(CommonDataStatus.class,1));
-		building.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		building.setCreateTime(dateFormat.format(new Date()));
 		building.setBuildTime(dateFormat.format(new Date(jsonObject.getLong("buildTime"))));
 		saveOrUpdate(building);
 		JSONObject returnObject=JSONObject.fromObject(building);
@@ -71,8 +77,22 @@ public class BuildingService extends BaseService {
 		String hqlString="from PublishOfficebuildinglist ";
 		String whereString="";
 		String title=(String)jsonObject.get("title");
+		int aredid=jsonObject.getInt("areaid");
+		int subwayid=jsonObject.getInt("subwayid");
 		if(!StringUtils.isEmpty(title)){
 			whereString=" title like '%"+title+"%' ";
+		}
+		if(aredid!=0){
+			if(!StringUtils.isEmpty(whereString)){
+				whereString=whereString+" and ";
+			}
+			whereString=whereString+" commonDataAreaByAreaTypeId.id="+aredid+" ";
+		}
+		if(subwayid!=0){
+			if(!StringUtils.isEmpty(whereString)){
+				whereString=whereString+" and ";
+			}
+			whereString=whereString+" commonDataSubwayBySubwayId.id="+subwayid+" ";
 		}
 		if(!StringUtils.isEmpty(whereString)){
 			whereString="where "+whereString;

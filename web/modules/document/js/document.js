@@ -70,7 +70,7 @@ angular.module("myApp").controller("document", ['$scope','$uibModal','$http','to
     $scope.addDocument=function(){
     	var selectnode=$('#tree').treeview('getSelected');
     	var modalInstance = $uibModal.open({
-            templateUrl: 'modules/document/addDocument.html',
+            templateUrl: 'modules/document/uploadFile.html',
             controller: 'document.addDocument',
             size: "lg",
             resolve: {

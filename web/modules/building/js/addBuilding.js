@@ -1,8 +1,21 @@
-angular.module('myApp').controller('building.addBuilding',['$scope','$http','$location','toaster',function ($scope,$http,$location,toaster) {
+angular.module('myApp').controller('building.addBuilding',['$scope','$http','$location','toaster','$stateParams',function ($scope,$http,$location,toaster,$stateParams) {
+    if($stateParams.id!=null){
+        $scope.title="编辑楼盘"
+        load($stateParams.id)
+    }else{
+        $scope.title="添加楼盘"
+    }
+
+    function load(id){
+        $http.post('building/load.do',{"id":id}).success(function(data){
+            $scope.building=data;
+
+        })
+    }
 
     var area=-1;
     $scope.selectArea=function(){
-        area=$scope.building.commonDataAreaByAreaTypeId;
+        area=$scope.building.commonDataAreaByAreaTypeId.id;
         $scope.building.commonDataDistrictByDistrictTypeId=null;
         loadDistrict()
     }

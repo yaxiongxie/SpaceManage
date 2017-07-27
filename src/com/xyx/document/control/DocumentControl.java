@@ -124,7 +124,7 @@ public class DocumentControl extends BaseControl{
                     commonService.saveOrUpdate(attachment);
                     
                     document.setDoccontent(content);
-                    SolrjTool.AddDoc(document);
+//                    SolrjTool.AddDoc(document);
                 }  
             }  
         }  

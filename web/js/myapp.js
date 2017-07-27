@@ -2,6 +2,8 @@
  * Created by Administrator on 2016/6/16.
  */
 
+
+
 (function (ng) {
     'use strict';
     var app = ng.module('ngLoadScript', []);
@@ -256,7 +258,6 @@ myApp.controller('topController',['$scope','$http','confirmDialog','$window', fu
 	}
 }])
 
-
 myApp.config(function($stateProvider, $urlRouterProvider) {
     //
     $urlRouterProvider.otherwise("/index");
@@ -274,7 +275,10 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
          .state('statistics', {url: "/statistics",templateUrl: "modules/statistics/statistics.html",controller:'statistics',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/statistics/js/statistics.js");}}})
 
         .state('building/buildinglist', {url: "/building/buildinglist",templateUrl: "modules/building/buildinglist.html",controller:'building.buildinglist',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/buildinglist.js");}}})
-        .state('building/addBuilding', {url: "/building/addBuilding",templateUrl: "modules/building/addBuilding.html",controller:'building.addBuilding',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/addBuilding.js");}}})
+        .state('building/addBuilding', {url: "/building/addBuilding",params: {'id': null},templateUrl: "modules/building/addBuilding.html",controller:'building.addBuilding',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/addBuilding.js");}}})
+
+        .state('building/officelist', {url: "/building/officelist",templateUrl: "modules/building/officelist.html",controller:'building.officelist',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/officelist.js");}}})
+        .state('building/addOffice', {url: "/building/addOffice",params: {'id': null},templateUrl: "modules/building/addOffice.html",controller:'building.addOffice',resolve:{loadMyCtrl:function($ocLazyLoad){return $ocLazyLoad.load("modules/building/js/addOffice.js");}}})
 
 
         .state('table', {

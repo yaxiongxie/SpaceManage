@@ -14,7 +14,7 @@ public class PublishOfficelist {
     private int areaNum;
     private int floorNum;
     private String information;
-    private Timestamp createTime;
+    private String createTime;
     private String image1;
     private String image2;
     private String image3;
@@ -89,11 +89,11 @@ public class PublishOfficelist {
 
     @Basic
     @Column(name = "createTime")
-    public Timestamp getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

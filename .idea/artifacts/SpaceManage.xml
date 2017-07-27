@@ -1,11 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="web:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/web_war_exploded</output-path>
-    <root id="root">
+  <artifact type="war" name="SpaceManage">
+    <output-path>$USER_HOME$/Documents/SpaceManage</output-path>
+    <root id="archive" name="SpaceManage.war">
       <element id="javaee-facet-resources" facet="SpaceManage/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="SpaceManage" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="aopalliance-" />
         </element>
       </element>
     </root>

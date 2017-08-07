@@ -26,18 +26,24 @@
                     </div>
                     <div layout="row">
                         <md-input-container flex>
+                            <label>楼栋号</label>
+                            <input type="text" ng-model="office.buildNum"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>门牌号</label>
+                            <input type="text" ng-model="office.doorNum"/>
+                        </md-input-container>
+                        <md-input-container flex>
                             <label>面积</label>
                             <input type="number" ng-model="office.areaNum"/>
                         </md-input-container>
-                        <md-input-container flex>
-                            <label>楼层</label>
-                            <input type="number" ng-model="office.floorNum"/>
-                        </md-input-container>
+
+                    </div>
+                    <div layout="row">
                         <md-input-container flex>
                             <label>房源信息</label>
                             <input type="text" ng-model="office.information"/>
                         </md-input-container>
-
                     </div>
 
                     <div layout="row">
@@ -55,9 +61,16 @@
                         </md-input-container>
 
                     </div>
-                    <md-select placeholder="状态" ng-model="office.commonDataStatusByStatusId.id"  flex="30">
-                        <md-option ng-value="status.id" ng-repeat="status in statuslist">{{status.statusName}}</md-option>
-                    </md-select>
+                    <div layout="row">
+                        <md-select placeholder="装修程度" ng-model="office.commonDataDecoratedegreeByDecorateId.id"  flex="30">
+                            <md-option ng-value="decorate.id" ng-repeat="decorate in decoratelist">{{decorate.decorateName}}</md-option>
+                        </md-select>
+                        <md-select placeholder="状态" ng-model="office.commonDataStatusByStatusId.id"  flex="30">
+                            <md-option ng-value="status.id" ng-repeat="status in statuslist">{{status.statusName}}</md-option>
+                        </md-select>
+                    </div>
+
+
                 </form>
             </div>
                 <md-button class="md-raised md-primary" ng-click="save()" style="float: right">保存</md-button>

@@ -40,7 +40,8 @@ angular.module("myApp").controller("building.officelist", ['$scope','$uibModal',
         {name:"uploadFile",title:"上传图片",imgClass:"fa fa-upload"},
         {name:"editT",title:"编辑",imgClass:"fa fa-pencil-square-o"},
         {name:"deleteT",title:"删除",imgClass:"fa fa-times"},
-        {name:"look",title:"查看",imgClass:"fa fa-share"}
+        {name:"look",title:"查看",imgClass:"fa fa-share"},
+        {name:"deleteImage",title:"删除图片",imgClass:"fa fa-delete"}
 	];
     $scope.pageOption={"currentPage":1,"pageSize":12};
     $scope.pageChanged = function() {
@@ -68,6 +69,10 @@ angular.module("myApp").controller("building.officelist", ['$scope','$uibModal',
             showUploadFile(id)
         }else if(type=="look"){
             window.open("http://www.yooweel.com/frontsite/office/"+id);
+        }else if(type=="deleteImage"){
+            confirmDialog("删除","确定删除吗？",function () {
+                deleteImage(id)
+            });
         }else{
     		edit(id);
     	}
@@ -118,6 +123,11 @@ angular.module("myApp").controller("building.officelist", ['$scope','$uibModal',
     	$http.post('building/delete.do',jsonData).success(function(){
     		refreshTable();
     	});
+    }
+    function deleteImage(id){
+        var jsonData={"relateid":id,"tablename":"office"};
+        $http.post('building/deleteImages.do',jsonData).success(function(){
+        });
     }
     
     $scope.queryTable=function(){

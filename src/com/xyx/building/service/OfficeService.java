@@ -4,6 +4,7 @@ import com.xyx.building.bean.PublishOfficebuildinglist;
 import com.xyx.building.bean.PublishOfficelist;
 import com.xyx.common.BaseService;
 import com.xyx.common.Page;
+import com.xyx.common.bean.CommonDataDecoratedegree;
 import com.xyx.common.bean.CommonDataDistrict;
 import com.xyx.common.bean.CommonDataStatus;
 import com.xyx.common.json.PropertyStrategyWrapper;
@@ -33,6 +34,10 @@ public class OfficeService extends BaseService {
 		if(jsonObject.has("commonDataStatusByStatusId[id]")){
 			building.setCommonDataStatusByStatusId(get(CommonDataStatus.class,jsonObject.getInt("commonDataStatusByStatusId[id]")));
 		}
+		if(jsonObject.has("commonDataDecoratedegreeByDecorateId[id]")){
+			building.setCommonDataDecoratedegreeByDecorateId(get(CommonDataDecoratedegree.class,jsonObject.getInt("commonDataDecoratedegreeByDecorateId[id]")));
+		}
+		//commonDataDecoratedegreeByDecorateId
 		if(jsonObject.has("publishOfficebuildinglistByOfficeBuildingId[id]")){
 			building.setPublishOfficebuildinglistByOfficeBuildingId(get(PublishOfficebuildinglist.class,jsonObject.getInt("publishOfficebuildinglistByOfficeBuildingId[id]")));
 		}

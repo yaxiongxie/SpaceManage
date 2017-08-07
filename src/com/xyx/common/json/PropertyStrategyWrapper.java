@@ -25,7 +25,7 @@ public class PropertyStrategyWrapper extends PropertySetStrategy {
             original.setProperty(o, string, o1);
 
         } catch (Exception ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
             //ignore
 
         }

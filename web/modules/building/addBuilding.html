@@ -19,23 +19,24 @@
                             <input type="text" ng-model="building.address"/>
                         </md-input-container>
                         <md-input-container flex>
-                            <label>附近交通</label>
+                            <label>步行时间</label>
                             <input type="text" ng-model="building.transport"/>
                         </md-input-container>
                     </div>
                     <div layout="row">
                         <md-input-container flex>
+                            <label>总楼层</label>
+                            <input type="number" ng-model="building.floorCount"/>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>坐标</label>
+                            <input type="text" ng-model="building.location"/>
+                        </md-input-container>
+                        <md-input-container flex>
                             <label>大厦信息</label>
                             <input type="text" ng-model="building.information"/>
                         </md-input-container>
-                        <md-input-container flex>
-                            <label>大厦配套</label>
-                            <input type="text" ng-model="building.informationMatch"/>
-                        </md-input-container>
-                        <md-input-container flex>
-                            <label>大厦建成时间</label>
-                            <md-datepicker ng-model="buildTime" md-placeholder="大厦建成时间"></md-datepicker>
-                        </md-input-container>
+
                     </div>
 
                     <div layout="row">
@@ -47,6 +48,10 @@
                         </md-select>
                         <md-select placeholder="地铁" ng-model="building.commonDataSubwayBySubwayId.id"  flex>
                             <md-option ng-value="subway.id" ng-repeat="subway in subwaylist">{{subway.subwayName}}</md-option>
+                        </md-select>
+                        <md-select placeholder="楼盘类型" ng-model="building.type"  flex>
+                            <md-option ng-value="1">写字楼</md-option>
+                            <md-option ng-value="2">商住</md-option>
                         </md-select>
                     </div>
 

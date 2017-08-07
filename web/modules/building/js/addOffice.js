@@ -21,6 +21,11 @@ angular.module('myApp').controller('building.addOffice',['$scope','$uibModal','$
             $scope.statuslist=data
         });
     }
+    function loadDecorate(){
+        $http.post('building/loadAllDecorate.do').success(function(data) {
+            $scope.decoratelist=data
+        });
+    }
 
     $scope.save=function(){
 
@@ -35,6 +40,7 @@ angular.module('myApp').controller('building.addOffice',['$scope','$uibModal','$
     }
 
     loadStatus()
+    loadDecorate()
 
     $scope.showBuildinglist=function(){
         var modalInstance = $uibModal.open({

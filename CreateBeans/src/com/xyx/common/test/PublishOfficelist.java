@@ -1,7 +1,4 @@
-package com.xyx.building.bean;
-
-import com.xyx.common.bean.CommonDataDecoratedegree;
-import com.xyx.common.bean.CommonDataStatus;
+package com.xyx.common.test;
 
 import javax.persistence.*;
 

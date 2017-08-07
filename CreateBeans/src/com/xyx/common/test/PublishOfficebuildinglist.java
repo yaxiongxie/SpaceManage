@@ -1,6 +1,4 @@
-package com.xyx.building.bean;
-
-import com.xyx.common.bean.*;
+package com.xyx.common.test;
 
 import javax.persistence.*;
 

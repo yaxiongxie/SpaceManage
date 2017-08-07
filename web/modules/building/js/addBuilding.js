@@ -44,9 +44,6 @@ angular.module('myApp').controller('building.addBuilding',['$scope','$http','$lo
     }
 
     $scope.save=function(){
-        if($scope.buildTime) {
-            $scope.building.buildTime = $scope.buildTime.getTime();
-        }
         $http.post('building/save.do',$scope.building).success(function(data){
             if(!data){
                 toaster.pop('error', "保存失败");

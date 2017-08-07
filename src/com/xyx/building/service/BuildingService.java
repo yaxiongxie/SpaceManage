@@ -18,12 +18,14 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Component("BuildingService")
 public class BuildingService extends BaseService {
 
 	public String save(JSONObject jsonObject) throws Exception {
+		jsonObject=filter(jsonObject);
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		JsonConfig config = new JsonConfig();
 		config.setPropertySetStrategy(new PropertyStrategyWrapper(PropertySetStrategy.DEFAULT));
@@ -38,10 +40,12 @@ public class BuildingService extends BaseService {
 		if(jsonObject.has("commonDataSubwayBySubwayId[id]")){
 			building.setCommonDataSubwayBySubwayId(get(CommonDataSubway.class,jsonObject.getInt("commonDataSubwayBySubwayId[id]")));
 		}
+		if(building.getBuildTime()==null || building.getBuildTime().trim().equals("")){
+			building.setBuildTime(null);
+		}
 		building.setCommonDataSourcetypeByBuildingTypeId(get(CommonDataSourcetype.class,1));
 		building.setCommonDataStatusByStatusId(get(CommonDataStatus.class,1));
 		building.setCreateTime(dateFormat.format(new Date()));
-		building.setBuildTime(dateFormat.format(new Date(jsonObject.getLong("buildTime"))));
 		saveOrUpdate(building);
 		JSONObject returnObject=JSONObject.fromObject(building);
 		return returnObject.toString();
@@ -129,5 +133,38 @@ public class BuildingService extends BaseService {
 	public List loadAllStatus(){
 		String hqlString="from CommonDataStatus ";
 		return getListByHQL(hqlString, null);
+	}
+	public List loadAllDecorate(){
+		String hqlString="from CommonDataDecoratedegree ";
+		return getListByHQL(hqlString, null);
+	}
+
+	public static JSONObject filter(JSONObject jsonObject){
+		Iterator iterator=jsonObject.keys();
+		JSONObject returnObject=JSONObject.fromObject(jsonObject.toString());
+		while(iterator.hasNext()){
+			String key=iterator.next().toString();
+			int subCount=subCount(key,"[");
+			if(subCount>1){
+				returnObject.remove(key);
+			}
+			System.out.println(key+subCount(key,"["));
+		}
+
+		return returnObject;
+	}
+
+	public static int subCount(String str,String substr)
+	{
+		int index=0;
+		int count=0;
+		int fromindex=0;
+		while((index=str.indexOf(substr,fromindex))!=-1)
+		{
+			//str=str.substring(index+substr.length());
+			fromindex=index+substr.length();
+			count++;
+		}
+		return count;
 	}
 }

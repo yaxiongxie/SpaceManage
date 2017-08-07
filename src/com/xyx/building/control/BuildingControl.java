@@ -50,6 +50,7 @@ public class BuildingControl extends BaseControl{
 			String result=buildingService.save(jsonObject);
 			returnJson(response, result);
 		}catch (Exception e) {
+			e.printStackTrace();
 			logger.error("building", e);
 		}
 	}
@@ -140,6 +141,17 @@ public class BuildingControl extends BaseControl{
 		try{
 			JSONObject jsonObject=getJSONData(request);
 			String result= JSONArray.fromObject(buildingService.loadAllStatus()).toString();
+			returnJson(response, result);
+		}catch (Exception e) {
+			logger.error("building", e);
+		}
+	}
+
+	@RequestMapping("building/loadAllDecorate.do")
+	public void loadAllDecorate(HttpServletRequest request,HttpServletResponse response){
+		try{
+			JSONObject jsonObject=getJSONData(request);
+			String result= JSONArray.fromObject(buildingService.loadAllDecorate()).toString();
 			returnJson(response, result);
 		}catch (Exception e) {
 			logger.error("building", e);
@@ -248,6 +260,23 @@ public class BuildingControl extends BaseControl{
 			}
 		}
 
+		returnSuccess(response);
+	}
+
+	@RequestMapping("building/deleteImages.do")
+	public void deleteImages(HttpServletRequest request,HttpServletResponse response){
+
+		String relateid=request.getParameter("relateid");
+		String tableName=request.getParameter("tablename");
+		buildingService.queryHql("delete CoreAttachment where relationid=? and tablename=?",Integer.parseInt(relateid),tableName);
+		PublishOfficebuildinglist officebuildinglist=buildingService.get(PublishOfficebuildinglist.class,Integer.parseInt(relateid));
+		officebuildinglist.setImage1("");
+		officebuildinglist.setImage2("");
+		officebuildinglist.setImage3("");
+		officebuildinglist.setImage4("");
+		officebuildinglist.setImage5("");
+		officebuildinglist.setImage6("");
+		buildingService.saveOrUpdate(officebuildinglist);
 		returnSuccess(response);
 	}
 

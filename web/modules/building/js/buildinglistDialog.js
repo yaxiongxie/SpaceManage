@@ -132,7 +132,7 @@ angular.module("myApp").controller("building.buildinglistDialog", ['$scope','$ui
         var selectId=$scope.selected[0];
         var selectTitle="";
         for(var i=0;i<$scope.page.list.length;i++){
-            if($scope.page.list[i].id=selectId){
+            if($scope.page.list[i].id==selectId){
                 selectTitle=$scope.page.list[i].title;
                 break;
             }

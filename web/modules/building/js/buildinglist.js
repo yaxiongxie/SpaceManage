@@ -39,8 +39,8 @@ angular.module("myApp").controller("building.buildinglist", ['$scope','$uibModal
         {name:"uploadFile",title:"上传图片",imgClass:"fa fa-upload"},
         {name:"editT",title:"编辑",imgClass:"fa fa-pencil-square-o"},
         {name:"deleteT",title:"删除",imgClass:"fa fa-times"},
-        {name:"look",title:"查看",imgClass:"fa fa-share"},
-        {name:"deleteImage",title:"删除图片",imgClass:"fa fa-delete"}
+        {name:"deleteImage",title:"删除图片",imgClass:"fa fa-times"},
+        {name:"look",title:"查看",imgClass:"fa fa-share"}
 	];
     $scope.pageOption={"currentPage":1,"pageSize":12};
     $scope.pageChanged = function() {

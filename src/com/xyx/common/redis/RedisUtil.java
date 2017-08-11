@@ -2,6 +2,8 @@ package com.xyx.common.redis;
 
 import redis.clients.jedis.Jedis;
 
+import java.util.Set;
+
 public class RedisUtil {
 
     public static void setValue(String key,String value){
@@ -22,7 +24,10 @@ public class RedisUtil {
     }
 
     public static void main(String[] args){
-        setValue("filePath","/var/local/pic/pic_folder/");
-        System.out.println("ss");
+        Jedis jedis=new Jedis("118.31.46.32");
+        jedis.auth("Xieyaxiong9");
+        Set<String> set=jedis.keys("building*");
+        System.out.println(set);
+        System.out.println(jedis.smembers("building_光谷总部国际"));
     }
 }

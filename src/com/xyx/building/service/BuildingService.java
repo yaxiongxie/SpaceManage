@@ -101,7 +101,7 @@ public class BuildingService extends BaseService {
 		if(!StringUtils.isEmpty(whereString)){
 			whereString="where "+whereString;
 		}
-		Page page=findPageByFetchedHql(hqlString+whereString, null, pageNo, pageSize, new Object[]{});
+		Page page=findPageByFetchedHql(hqlString+whereString+" order by orderInt desc,id", null, pageNo, pageSize, new Object[]{});
 		System.out.println("page:"+page.getCurrentPage()+":"+page.getPageCount()+":"+page.getPageSize()+":"+page.getTotalCount());
 		return JSONObject.fromObject(page).toString();
 	}

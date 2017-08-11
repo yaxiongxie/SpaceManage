@@ -163,7 +163,7 @@ public class BuildingControl extends BaseControl{
 
 		String relateid=request.getParameter("relateid");
 		String tableName=request.getParameter("tablename");
-		List<String> list=buildingService.getListByHQL("select filename from CoreAttachment where relationid=? and tablename=? order by id desc",Integer.parseInt(relateid),tableName);
+		List<String> list=buildingService.getListByHQL("select filename from CoreAttachment where relationid=? and tablename=? order by id",Integer.parseInt(relateid),tableName);
 		if(tableName.equals("building")){
 			PublishOfficebuildinglist officebuildinglist=buildingService.get(PublishOfficebuildinglist.class,Integer.parseInt(relateid));
 			if(list.size()>0){

@@ -12,6 +12,7 @@ public class PublishOfficebuildinglist {
     private String address;
     private int rentMaxPrice;
     private int rentMinPrice;
+    private int orderInt=1;
     private String transport;
     private String information;
     private String buildTime;
@@ -74,6 +75,16 @@ public class PublishOfficebuildinglist {
 
     public void setRentMaxPrice(int rentMaxPrice) {
         this.rentMaxPrice = rentMaxPrice;
+    }
+
+    @Basic
+    @Column(name = "order_int")
+    public int getOrderInt() {
+        return orderInt;
+    }
+
+    public void setOrderInt(int orderInt) {
+        this.orderInt = orderInt;
     }
 
     @Basic

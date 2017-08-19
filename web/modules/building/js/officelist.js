@@ -50,7 +50,7 @@ angular.module("myApp").controller("building.officelist", ['$scope','$uibModal',
     $scope.deleteBatch=function(){
     	confirmDialog("删除","确定删除吗？",function () {
         	var jsonData={ids:$scope.selected.join(",")};
-        	$http.post('building/deleteByIds.do',jsonData).success(function(){
+        	$http.post('office/deleteByIds.do',jsonData).success(function(){
         		refreshTable();
         	});
         });
@@ -117,10 +117,11 @@ angular.module("myApp").controller("building.officelist", ['$scope','$uibModal',
     function edit(id){
         $state.go('building/addOffice', {id: id})
     }
-    
+
+
     function deleteE(id){
     	var jsonData={"id":id};
-    	$http.post('building/delete.do',jsonData).success(function(){
+    	$http.post('office/delete.do',jsonData).success(function(){
     		refreshTable();
     	});
     }

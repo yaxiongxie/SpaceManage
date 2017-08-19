@@ -264,19 +264,30 @@ public class BuildingControl extends BaseControl{
 	}
 
 	@RequestMapping("building/deleteImages.do")
-	public void deleteImages(HttpServletRequest request,HttpServletResponse response){
+	public void deleteImages(HttpServletRequest request,HttpServletResponse response) {
 
-		String relateid=request.getParameter("relateid");
-		String tableName=request.getParameter("tablename");
-		buildingService.queryHql("delete CoreAttachment where relationid=? and tablename=?",Integer.parseInt(relateid),tableName);
-		PublishOfficebuildinglist officebuildinglist=buildingService.get(PublishOfficebuildinglist.class,Integer.parseInt(relateid));
-		officebuildinglist.setImage1("");
-		officebuildinglist.setImage2("");
-		officebuildinglist.setImage3("");
-		officebuildinglist.setImage4("");
-		officebuildinglist.setImage5("");
-		officebuildinglist.setImage6("");
-		buildingService.saveOrUpdate(officebuildinglist);
+		String relateid = request.getParameter("relateid");
+		String tableName = request.getParameter("tablename");
+		buildingService.queryHql("delete CoreAttachment where relationid=? and tablename=?", Integer.parseInt(relateid), tableName);
+		if (tableName.equals("building")){
+			PublishOfficebuildinglist officebuildinglist = buildingService.get(PublishOfficebuildinglist.class, Integer.parseInt(relateid));
+			officebuildinglist.setImage1("");
+			officebuildinglist.setImage2("");
+			officebuildinglist.setImage3("");
+			officebuildinglist.setImage4("");
+			officebuildinglist.setImage5("");
+			officebuildinglist.setImage6("");
+			buildingService.saveOrUpdate(officebuildinglist);
+		}else if(tableName.equals("office")){
+			PublishOfficelist officebuildinglist = buildingService.get(PublishOfficelist.class, Integer.parseInt(relateid));
+			officebuildinglist.setImage1("");
+			officebuildinglist.setImage2("");
+			officebuildinglist.setImage3("");
+			officebuildinglist.setImage4("");
+			officebuildinglist.setImage5("");
+			officebuildinglist.setImage6("");
+			buildingService.saveOrUpdate(officebuildinglist);
+		}
 		returnSuccess(response);
 	}
 
